@@ -1,0 +1,7 @@
+{
+  "name": "uqlibrary-a11y-link#gh-pages",
+  "private": true,
+  "dependencies": {
+    "uqlibrary-a11y-link": "uqlibrary/uqlibrary-a11y-link#master"
+  }
+}
