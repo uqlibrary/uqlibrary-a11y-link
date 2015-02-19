@@ -1,0 +1,34 @@
+<link href="../polymer/polymer.html" rel="import">
+<link href="../core-a11y-keys/core-a11y-keys.html" rel="import">
+
+<polymer-element name="uqlibrary-a11y-link" role="link">
+
+  <template>
+    <link rel="stylesheet" href="../uqlibrary-elements/resources/theme/element.css">
+
+    <a href="{{javascriptPlaceholder}}">
+      <content></content>
+    </a>
+
+    <core-a11y-keys keys="{{activationKeys}}" target="{{}}" on-keys-pressed="{{_activate}}"></core-a11y-keys>
+
+  </template>
+
+  <script>
+
+    Polymer({
+
+      javascriptPlaceholder: 'javascript:;',
+
+      activationKeys: 'space enter',
+
+      _activate: function() {
+        this.click();
+        this.fire('tap');
+      }
+
+    });
+
+  </script>
+
+</polymer-element>
