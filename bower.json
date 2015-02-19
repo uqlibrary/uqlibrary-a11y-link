@@ -11,7 +11,7 @@
   ],
   "dependencies": {
     "polymer": "Polymer/polymer#^0.5.4",
-    "core-collapse": "Polymer/core-a11y-keys#0.5.4"
+    "core-a11y-keys": "Polymer/core-a11y-keys#0.5.4"
   },
   "devDependencies": {
     "web-component-tester": "Polymer/web-component-tester#1.6.1"
