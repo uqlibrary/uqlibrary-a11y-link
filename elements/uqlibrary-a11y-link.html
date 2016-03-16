@@ -1,5 +1,4 @@
-<link href="../polymer/polymer.html" rel="import">
-<link href="../core-a11y-keys/core-a11y-keys.html" rel="import">
+<link href="elements.html" rel="import">
 
 <!--
 
@@ -16,34 +15,35 @@ In this case only mouse or touch events will be handled, eg if user navigates to
 @homepage https://github.com/uqlibrary/uqlibrary-a11y-link
 -->
 
-<polymer-element name="uqlibrary-a11y-link" role="link">
-
+<dom-module id="uqlibrary-a11y-link">
+  <uqlibrary-styles></uqlibrary-styles>
   <template>
-    <link rel="stylesheet" href="../uqlibrary-elements/resources/theme/element.css">
 
-    <a href="{{javascriptPlaceholder}}">
+    <a href$="{{javascriptPlaceholder}}">
       <content></content>
     </a>
 
-    <core-a11y-keys keys="{{activationKeys}}" target="{{}}" on-keys-pressed="{{_activate}}"></core-a11y-keys>
+    <iron-a11y-keys keys="{{activationKeys}}" target="{{}}" on-keys-pressed="_activate"></iron-a11y-keys>
 
   </template>
-
   <script>
-
     Polymer({
-
-      javascriptPlaceholder: 'javascript:;',
-
-      activationKeys: 'space enter',
-
-      _activate: function() {
+      is: 'uqlibrary-a11y-link',
+      properties: {
+        activationKeys: {
+          type: String,
+          value: 'space enter'
+        },
+        javascriptPlaceholder: {
+          type: String,
+          value: 'javascript:;'
+        }
+      },
+      _activate: function () {
         this.click();
         this.fire('tap');
-      }
-
+      },
+      hostAttributes: { 'role': 'link' }
     });
-
   </script>
-
-</polymer-element>
+</dom-module>

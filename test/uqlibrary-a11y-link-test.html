@@ -5,43 +5,44 @@
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=no">
   <title>uqlibrary-timeline</title>
 
-  <script src="../../webcomponentsjs/webcomponents.min.js"></script>
-  <script src="../../web-component-tester/browser.js"></script>
-  <script src="../../moment/min/moment.min.js"></script>
+  <script src="../bower_components/webcomponentsjs/webcomponents.min.js"></script>
+  <script src="../bower_components/web-component-tester/browser.js"></script>
+  <script src="../bower_components/test-fixture/test-fixture-mocha.js"></script>
+  <link rel="import" href="../bower_components/test-fixture/test-fixture.html">
 
-  <link rel="import" href="../uqlibrary-a11y-link.html">
+  <link rel="import" href="../elements/uqlibrary-a11y-link.html">
 </head>
 <body>
 
-  <uqlibrary-a11y-link>
-    Test Link
-  </uqlibrary-a11y-link>
+<test-fixture id="element">
+  <template>
+    <uqlibrary-a11y-link>
+      Test Link
+    </uqlibrary-a11y-link>
+  </template>
+</test-fixture>
 
-  <script>
-    window.addEventListener('polymer-ready', function() {
-      var myEl = document.querySelector('uqlibrary-a11y-link');
-
-      describe('uqlibrary-a11y-link', function () {
-        before(function () {
-        });
-
-        it('should handle on tap event', function(done) {
-          setTimeout(function() {
-
-            var processTap = function(event) {
-              setTimeout(function() {
-                expect(event).not.to.be.null;
-                done();
-              }, 2000);
-            };
-            myEl.addEventListener("on-tap", processTap);
-            myEl.fire('on-tap');
-
-          }, 1000);
-        });
-      });
+<script>
+  suite('<uqlibrary-a11y-link> tests', function () {
+    var element;
+    setup(function () {
+      element = fixture('element');
     });
-  </script>
+
+    test('It should handle the on tap event', function () {
+      expect(element.textContent).to.match(/\s*Test Link\s*/);
+    });
+
+    test('It should handle the on tap event', function (done) {
+      var processTap = function (event) {
+        expect(event).to.be.null;
+        done();
+      };
+      element.addEventListener('on-tap', processTap);
+      element.fire('on-tap');
+    });
+  });
+</script>
 
 </body>
 </html>

@@ -1,3 +1,5 @@
 .idea
 .DS_Store
 *.map
+bower_components
+node_modules

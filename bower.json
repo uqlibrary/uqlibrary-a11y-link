@@ -5,15 +5,13 @@
   "license": "MIT",
   "private": true,
   "homepage": "https://github.com/uqlibrary/uqlibrary-a11y-link/",
-  "ignore": [
-    "/.*",
-    "/tests/"
-  ],
   "dependencies": {
-    "polymer": "Polymer/polymer#^0.5.5",
-    "core-a11y-keys": "Polymer/core-a11y-keys#0.5.5"
+    "polymer": "Polymer/polymer#^1.3.1",
+    "core-a11y-keys": "PolymerElements/iron-a11y-keys#^1.0.4",
+    "uqlibrary-styles": "uqlibrary/uqlibrary-styles#master"
   },
   "devDependencies": {
-    "web-component-tester": "Polymer/web-component-tester#1.6.1"
+    "web-component-tester": "*",
+    "test-fixture": "PolymerElements/test-fixture#^1.1.0"
   }
 }
